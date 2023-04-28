@@ -1,13 +1,13 @@
 import express from "express";
-import bookController from "../controller/bookController";
+import laptopController from "../controller/laptopController";
 let router = express.Router()
 
 const initApiRoute = (app)=> {
-  router.post("/create-book", bookController.createBookApi);
-  router.get("/get-book", bookController.getBookApi);
-  router.put("/update-book", bookController.updateBookApi);
-  router.delete("/delete-book", bookController.deleteBookApi);
-  router.get("/find-book", bookController.findBookByNameApi);
+  router.post("/create-laptop", laptopController.createLaptopApi);
+  router.get("/get-laptop", laptopController.getLaptopApi);
+  router.put("/update-laptop", laptopController.updateLaptopApi);
+  router.delete("/delete-laptop", laptopController.deleteLaptopApi);
+  router.get("/find-laptop", laptopController.findLaptopByNameApi);
   return app.use("/api/v1/", router);
 }
 

@@ -1,12 +1,9 @@
-import bookService from "../service/BookService";
+import laptopService from "../service/LaptopService";
 //---------------api--------------------------------------------------------------------------------------------------
-let createBookApi = async(req, res)=>{
+let createLaptopApi = async(req, res)=>{
   try{
     let data = req.body;
-    if(!data.isSold){
-      data.isSold=0;
-    }
-    let response = await bookService.handleCreateBook(data);
+    let response = await laptopService.handleCreateLaptop(data);
     return res.status(200).json(response);
   }catch(e){
     console.log(e);
@@ -17,10 +14,10 @@ let createBookApi = async(req, res)=>{
   }
 }
 
-let getBookApi = async(req, res)=>{
+let getLaptopApi = async(req, res)=>{
   try{
-    let idBook = req.query.id;
-    let response = await bookService.handleGetBook(idBook);
+    let idLaptop = req.query.id;
+    let response = await laptopService.handleGetLaptop(idLaptop);
     return res.status(200).json(response);
   }catch(e){
     console.log(e);
@@ -32,13 +29,10 @@ let getBookApi = async(req, res)=>{
   
 }
 
-let updateBookApi = async(req, res)=>{
+let updateLaptopApi = async(req, res)=>{
   try{
     let data = req.body;
-    if(!data.isSold){
-      data.isSold = 0;
-    }
-    let response = await bookService.handleUpdateBook(data);
+    let response = await laptopService.handleUpdateLaptop(data);
     return res.status(200).json(response);
   }catch(e){
     console.log(e);
@@ -48,10 +42,10 @@ let updateBookApi = async(req, res)=>{
     })
   }
 }
-let deleteBookApi = async(req, res)=>{
+let deleteLaptopApi = async(req, res)=>{
   try{
-    let idBook = req.query.id;
-    let response = await bookService.handleDeleteBook(idBook);
+    let idLaptop = req.query.id;
+    let response = await laptopService.handleDeleteLaptop(idLaptop);
     return res.status(200).json(response);
   }catch(e){
     console.log(e);
@@ -62,10 +56,10 @@ let deleteBookApi = async(req, res)=>{
   }
 }
 
-let findBookByNameApi = async(req, res)=>{
+let findLaptopByNameApi = async(req, res)=>{
   try{
-    let nameBook = req.query.name;
-    let response = await bookService.handleFindBookByName(nameBook);
+    let nameLaptop = req.query.name;
+    let response = await laptopService.handleFindLaptopByName(nameLaptop);
     return res.status(200).json(response);
   }catch(e){
     console.log(e);
@@ -78,9 +72,9 @@ let findBookByNameApi = async(req, res)=>{
 }
 
 module.exports = {
-  createBookApi,
-  getBookApi,
-  updateBookApi,
-  deleteBookApi,
-  findBookByNameApi,
+  createLaptopApi,
+  getLaptopApi,
+  updateLaptopApi,
+  deleteLaptopApi,
+  findLaptopByNameApi,
 }
